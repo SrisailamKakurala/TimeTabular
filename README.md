@@ -146,6 +146,12 @@ Now we can update `assigned` to "Yes" and fill `assignedTo` whenever a room is a
 
 ![alt text](image.png)
 
-inputs needed:
+**Inputs attained initially:**
+- branches and their year wise sections
+- room allocated to every section
+- labs, faculty of each branch
+
+
+**inputs needed for Time Table Generation:**
 
 state:
