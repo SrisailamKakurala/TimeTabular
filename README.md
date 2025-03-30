@@ -20,9 +20,19 @@
 
 ---
 
-## 📙 <span style="color:yellow">Data That Needs To Be Uploaded Before Any Ops</span>
+## 📙 <span style="color:yellow">Data That Needs To Be Uploaded Initially</span>
 
-[Excel File](./timeTabular-structure.xlsx)
+[Download Excel File](./timeTabular-structure.xlsx)
+
+It contains:
+
+![alt text](image-1.png)
+
+- **Branches** (CSE, ECE, IT, etc.)
+- **Year Wise Sections Of Each Branch**
+- **Rooms, Labs, and Faculty Of Each Branch**
+
+`Note`: <span style="color:yellow">Tentative Format (may change)!</span>
 
 ---
 
@@ -130,7 +140,7 @@ Now we can update `assigned` to "Yes" and fill `assignedTo` whenever a room is a
 
 ## 🌟 <span style="color:pink">Time Table Creation</span>
 
-Note: <span style="color:yellow">At this point the rooms have been assigned to all the classes!</span>
+`Note`: <span style="color:yellow">At this point the rooms have been assigned to all the classes!</span>
 
 **General Workflow:**
 
