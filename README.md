@@ -153,5 +153,84 @@ Now we can update `assigned` to "Yes" and fill `assignedTo` whenever a room is a
 
 
 **inputs needed for Time Table Generation:**
+- Branch, year(sem), no.of.sections, subjects for that semester (with Abbreviations), and we can drag the faculty for each section [draggable].
+- Previous TimeTable State from the 2nd Iteration
 
-state:
+![alt text](image-2.png)
+
+**Data sent to LLM:**
+
+`Client Input`:
+```json
+{
+   "branch": "cse",
+   "year": "3",
+   "semester": "1",
+   "sections": "2",
+   "subjects": {
+      "1": "DBMS",
+      "2": "OS",
+      "3": "CN",
+      "4": "Maths",
+      "5": "CN Lab",
+      "6": "DBMS Lab"
+   },
+   "faculty": {
+      "section-A": {
+         "DBMS": "Dr. John Doe",
+         "OS": "Prof. Jane Smith",
+         "CN": "Mr. Alan Brown"
+      },
+      "section-B": {
+         "DBMS": "Dr. John Doe",
+         "OS": "Prof. Jane Smith",
+         "CN": "Mr. Alan Brown"
+      }
+   }
+}
+```
+
+`Background Data That is sent to LLM`:
+```json
+{
+   "Room": "C-303",
+   "Lab Availability": {
+      "mon": {
+         "N-205": {
+            "FN": 1, // 1 -> booked
+            "AN": 1,
+         },
+         "S-208": {
+            "FN": 1,
+            "AN": 0, // 0 -> available
+         }
+      },
+      "tue": {
+         "N-205": {
+            "FN": 0,
+            "AN": 1,
+         },
+         "S-208": {
+            "FN": 1,
+            "AN": 1,
+         }
+      },
+      .
+      .
+      . // so on
+   },
+   "BlockedSlotsOfFaculty": {
+      "Mr. Pramod": {
+         "9:40 - 10:40": 1 // 1 -> Not available at this time.
+      },
+      "Mr. X": {
+         "1:20 - 2:20": 1
+      },
+      .
+      .
+      . // so on
+   }
+}
+```
+
+`Response Sent By LLM`:
