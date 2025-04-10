@@ -207,10 +207,12 @@ Now we can update `assigned` to "Yes" and fill `assignedTo` whenever a room is a
       },
       "tue": {
          "N-205": {
+            "type": "computer",
             "FN": 0,
             "AN": 1,
          },
          "S-208": {
+            "type": "semi-conductors",
             "FN": 1,
             "AN": 1,
          }
@@ -234,3 +236,54 @@ Now we can update `assigned` to "Yes" and fill `assignedTo` whenever a room is a
 ```
 
 `Response Sent By LLM`:
+
+```json
+{
+   "branch": "CSE",
+   "section-A": {
+      "table1": { // the time table data
+         "mon": [ // lectures and labs on monday
+            {
+               "lecture": "CD",
+               "colspan": 1 
+            },
+            {
+               "lecture": "FSD",
+               "colspan": 1 
+            },
+            {
+               "lecture": "EIA",
+               "colspan": 1 
+            },
+            {
+               "lecture": "FSD LAB",
+               "colspan": 3 
+            },
+         ],
+         "tue": [
+            // lectures and labs(if there are any) on tuesday
+         ],
+         ..
+         ..  // till saturday  (inclusive)
+      },
+      "table2": { // subjects and faculty data
+         "subject1": ["subject Abbreviation", "subject faculty name"],
+         "subject2": ["subject Abbreviation", "subject faculty name"],
+         "subject3": ["subject Abbreviation", "subject faculty name"],
+         .
+         .
+      }
+   },
+   "section-B": {
+      // same structure here
+   },
+
+   // change that needs to be made in database.
+   "mutations": {
+      <!-- faculty mutations -->
+      <!-- lab availability mutations -->
+   }
+}
+```
+
+
